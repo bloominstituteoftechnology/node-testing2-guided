@@ -1,10 +1,6 @@
 # Web Testing IV Guided Project
 
-Guided project for **Web Auth IV** Module.
-
-## Prerequisites
-
-- [SQLite Studio](https://sqlitestudio.pl/index.rvt?act=download) installed.
+Guided project for **Web Testing IV** Module.
 
 ## Project Setup
 
