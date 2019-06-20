@@ -1,19 +1,23 @@
 const express = require('express');
 
-const hobbits = require('../hobbits/hobbitsModel.js');
+const Hobbits = require('../hobbits/hobbitsModel.js');
 
 const server = express();
 
 server.use(express.json());
 
-server.get('/', async (req, res) => {
+server.get('/', (req, res) => {
   res.status(200).json({ api: 'up' });
 });
 
-server.get('/hobbits', async (req, res) => {
-  const rows = await hobbits.getAll();
-
-  res.status(200).json(rows);
+server.get('/hobbits', (req, res) => {
+  Hobbits.getAll()
+    .then(hobbits => {
+      res.status(200).json(rows);
+    })
+    .catch(error => {
+      res.status(500).json(error);
+    });
 });
 
 module.exports = server;
