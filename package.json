@@ -1,7 +1,7 @@
 {
   "name": "node-server-testing-guided",
   "version": "1.0.0",
-  "description": "Starter Code for Web Testing IV Module",
+  "description": "Starter Code for Node Server Testing Module",
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
