@@ -7,7 +7,7 @@ const server = express();
 server.use(express.json());
 
 server.get("/", (req, res) => {
-  res.status(200).json({ api: "up" });
+  res.status(200).json({ api: "up", dbenv: process.env.DB_ENV });
 });
 
 server.get("/hobbits", (req, res) => {
