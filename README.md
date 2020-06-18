@@ -10,3 +10,7 @@ Guided project for **Node Server Testing** Module.
 - [ ] type `npm run server` to start the API.
 
 Please follow along as the instructor adds automated tests to the API.
+
+
+Jest run any file ending in `spec.js` or `test.js`.
+Also and `*.js` file inside of `_tests_`
