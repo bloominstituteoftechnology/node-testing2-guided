@@ -25,5 +25,8 @@ server.post('./hobbits', (req, res) => {
   .then(saved => {
     res.status(201).json(saved)
   })
+  .catch(error => {
+    res.status(500)
+  })
 })
 module.exports = server;
