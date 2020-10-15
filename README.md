@@ -10,3 +10,7 @@ Guided project for **Node Server Testing** Module.
 - [ ] type `npm run server` to start the API.
 
 Please follow along as the instructor adds automated tests to the API.
+
+## Testing an API
+
+- run the server on a port
