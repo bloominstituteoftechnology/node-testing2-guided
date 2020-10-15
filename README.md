@@ -21,4 +21,4 @@ Please follow along as the instructor adds automated tests to the API.
 - add test script : "test": "jest --watch"
 - add environment : "jest":{ "testEnvironment":"node"}
 
-Jest will default to running code in an environment similar to a web browser. For testing node servers, we need to change that option.
+Jest will default to running code in an environment similar to a web browser. For testing node servers, we need to change that option
