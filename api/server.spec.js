@@ -14,9 +14,14 @@ describe('server', () => {
         it('should have a body api:up', () => {
             return supertest(server).get('/').then(res => {expect(res.body.api).toBe("up")} )
         })
-        it('should have a body api:up', () => {
-            return supertest(server).get('/').then(res => {expect(res.type).toMatch("up")} )
-        })
+
+        it("should return JSON", () => {
+            return supertest(server)
+                .get("/")
+                .then(res => {
+                    expect(res.type).toMatch(/json/i);
+                });
+        });
 
     }) 
 })

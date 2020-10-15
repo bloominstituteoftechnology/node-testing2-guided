@@ -15,11 +15,14 @@
         "express": "^4.17.1",
         "jest": "^26.5.3",
         "knex": "^0.21.6",
+        "pg": "^8.4.1",
         "sqlite3": "^5.0.0",
         "supertest": "^5.0.0"
     },
     "devDependencies": {
         "nodemon": "^2.0.5"
     },
-    "jest":{ "testEnvironment":"node"}
+    "jest": {
+        "testEnvironment": "node"
+    }
 }
