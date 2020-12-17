@@ -6,6 +6,8 @@
   "scripts": {
     "server": "nodemon index.js",
     "start": "node index.js",
+    "migrate": "knex migrate:latest",
+    "seed": "knex seed:run",
     "ketchup": "git fetch && git reset --hard origin/lecture"
   },
   "keywords": [],
