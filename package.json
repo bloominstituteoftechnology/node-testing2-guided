@@ -1,7 +1,6 @@
 {
   "name": "node-testing2-guided",
   "version": "1.0.0",
-  "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
     "start": "node index.js",
