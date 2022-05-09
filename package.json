@@ -9,10 +9,10 @@
     "ketchup": "git fetch && git reset --hard origin/lecture"
   },
   "dependencies": {
-    "@vscode/sqlite3": "^5.0.8",
+    "sqlite3": "^5.0.8",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
-    "knex": "^1.0.4"
+    "knex": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^8.12.0",
