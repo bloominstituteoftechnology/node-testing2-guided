@@ -41,8 +41,12 @@ server.post("/hobbits", async (req, res) => {
 });
 
 server.delete("/hobbits/:id", async (req, res) => {
-  const result = Hobbits.remove(req.params.id);
-  res.json(result);
+  const result = await Hobbits.remove(req.params.id);
+  if(result) {
+    res.json(result);
+  } else {
+    res.status(404).json({ message: 'hobbit not found' });
+  }
 });
 
 server.put("/hobbits/:id", async (req, res) => {
