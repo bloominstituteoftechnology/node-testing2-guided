@@ -29,6 +29,7 @@ describe('hobbit model tests', () => {
     test('Hobbit.getById', async () => {
         let result = await Hobbit.getById(4);
         expect(result).toMatchObject({ name: 'merry' });
+        
         result = await Hobbit.getById(999);
         expect(result).not.toBeDefined();
     });
@@ -41,6 +42,16 @@ describe('hobbit model tests', () => {
         expect(result).toHaveLength(5);
     });
 
-    // test('Hobbit.update', async () => {});
+    test('Hobbit.update', async () => {
+        let result = await Hobbit.update(3, { name: 'peregrin' });
+        expect(result).toMatchObject({ id: 3, name: 'peregrin' });
+
+        result = await Hobbit.getAll();
+        expect(result).toHaveLength(4);
+
+        result = await Hobbit.update(999, { name: 'sauron' });
+        expect(result).not.toBeDefined();
+    });
+
     // test('Hobbit.remove', async () => {});
 });
