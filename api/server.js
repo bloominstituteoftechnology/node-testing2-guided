@@ -25,7 +25,7 @@ server.get("/hobbits/:id", async (req, res) => {
   if(result) {
     res.json(result);
   } else {
-    res.status(404).json();
+    res.status(404).json({ message: 'hobbit not found' });
   }
 });
 

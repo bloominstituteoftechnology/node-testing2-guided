@@ -86,7 +86,7 @@ describe('HTTP endpoint tests', () => {
         expect(result.body).toMatchObject({ name: 'merry' });
         expect(result.status).toBe(200);
         
-        result = await Hobbit.getById(999);
+        result = await request(server).get('/hobbits/999');
         expect(result.status).toBe(404);
         expect(result.body).toMatchObject({ message: 'hobbit not found' });
     });
