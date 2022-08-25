@@ -10,6 +10,10 @@ beforeAll(async () => {
     await db.migrate.latest();
 });
 
+beforeEach(async () => {
+    await db.seed.run();
+});
+
 describe('hobbit model tests', () => {
     test('Hobbit.getAll', async () => {
         let result = await Hobbit.getAll();
