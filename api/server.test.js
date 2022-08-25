@@ -74,7 +74,11 @@ describe('HTTP endpoint tests', () => {
         expect(result.status).toBe(200);
     });
 
-    // test('GET /hobbits', async () => {});
+    test('GET /hobbits', async () => {
+        let result = await request(server).get('/hobbits');
+        expect(result.body).toHaveLength(4);
+        expect(result.body[2]).toHaveProperty('name', 'pippin');
+    });
 
     // test('GET /hobbits/:id', async () => {});
 
