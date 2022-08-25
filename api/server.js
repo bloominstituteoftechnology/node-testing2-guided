@@ -29,8 +29,15 @@ server.get("/hobbits/:id", async (req, res) => {
   }
 });
 
-server.post("/hobbits", (req, res) => {
-  res.end()
+server.post("/hobbits", async (req, res) => {
+  const { name } = req.body;
+  if(typeof name !== 'string') {
+    res.status(400).json({ message: 'invalid request'});
+    return;
+  }
+
+  const result = await Hobbits.insert({ name });
+  res.status(201).json(result)
 });
 
 server.delete("/hobbits/:id", (req, res) => {
