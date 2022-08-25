@@ -20,7 +20,7 @@ server.get("/hobbits", (req, res) => {
     });
 });
 
-server.get("/hobbits/id", (req, res) => {
+server.get("/hobbits/:id", (req, res) => {
   res.end()
 });
 
