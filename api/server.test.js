@@ -78,9 +78,18 @@ describe('HTTP endpoint tests', () => {
         let result = await request(server).get('/hobbits');
         expect(result.body).toHaveLength(4);
         expect(result.body[2]).toHaveProperty('name', 'pippin');
+        expect(result.status).toBe(200);
     });
 
-    // test('GET /hobbits/:id', async () => {});
+    test('GET /hobbits/:id', async () => {
+        let result = await request(server).get('/hobbits/4');
+        expect(result.body).toMatchObject({ name: 'merry' });
+        expect(result.status).toBe(200);
+        
+        result = await Hobbit.getById(999);
+        expect(result.status).toBe(404);
+        expect(result.body).toMatchObject({ message: 'hobbit not found' });
+    });
 
     // test('POST /hobbits', async () => {});
 
