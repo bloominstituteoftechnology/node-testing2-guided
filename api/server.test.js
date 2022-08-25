@@ -96,6 +96,10 @@ describe('HTTP endpoint tests', () => {
         expect(result.body).toMatchObject({ id: 5, name: 'lotho' });
         expect(result.status).toBe(200);
 
+        result = await request(server).post('/hobbits').send({ blah: 'foobar' });
+        expect(result.body).toMatchObject({ message: 'invalid request' });
+        expect(result.status).toBe(400);
+
         result = await Hobbit.getAll();
         expect(result).toHaveLength(5);
     });
