@@ -45,7 +45,13 @@ server.delete("/hobbits/:id", (req, res) => {
 });
 
 server.put("/hobbits/:id", async (req, res) => {
-  const result = await Hobbits.update(req.params.id, req.body);
+  const { name } = req.body;
+  if(typeof name !== 'string') {
+    res.status(400).json({ message: 'invalid request'});
+    return;
+  }
+
+  const result = await Hobbits.update(req.params.id, { name });
   res.json(result);
 });
 
