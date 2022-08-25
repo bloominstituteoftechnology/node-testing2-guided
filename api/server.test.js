@@ -94,7 +94,7 @@ describe('HTTP endpoint tests', () => {
     test('POST /hobbits', async () => {
         let result = await request(server).post('/hobbits').send({ name: 'lotho' });
         expect(result.body).toMatchObject({ id: 5, name: 'lotho' });
-        expect(result.status).toBe(200);
+        expect(result.status).toBe(201);
 
         result = await request(server).post('/hobbits').send({ blah: 'foobar' });
         expect(result.body).toMatchObject({ message: 'invalid request' });
