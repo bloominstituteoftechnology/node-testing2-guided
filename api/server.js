@@ -44,8 +44,9 @@ server.delete("/hobbits/:id", (req, res) => {
   res.end()
 });
 
-server.put("/hobbits/:id", (req, res) => {
-  res.end()
+server.put("/hobbits/:id", async (req, res) => {
+  const result = await Hobbits.update(req.params.id, req.body);
+  res.json(result);
 });
 
 module.exports = server;
