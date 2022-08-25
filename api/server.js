@@ -40,8 +40,9 @@ server.post("/hobbits", async (req, res) => {
   res.status(201).json(result)
 });
 
-server.delete("/hobbits/:id", (req, res) => {
-  res.end()
+server.delete("/hobbits/:id", async (req, res) => {
+  const result = Hobbits.remove(req.params.id);
+  res.json(result);
 });
 
 server.put("/hobbits/:id", async (req, res) => {
