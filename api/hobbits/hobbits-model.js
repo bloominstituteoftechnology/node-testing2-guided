@@ -28,6 +28,8 @@ async function update(id, changes) {
   return getById(id);
 }
 
-function remove(id) {
-  return null
+async function remove(id) {
+  const result = await getById(id);
+  await db('hobbits').delete().where('id', id);
+  return result;
 }
