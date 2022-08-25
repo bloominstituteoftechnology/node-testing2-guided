@@ -1,7 +1,13 @@
+const db = require('../data/dbConfig');
 const Hobbit = require('./hobbits/hobbits-model');
 
 test('check environment', () => {
     expect(process.env.NODE_ENV).toBe('testing');
+});
+
+beforeAll(async () => {
+    await db.migrate.rollback();
+    await db.migrate.latest();
 });
 
 describe('hobbit model tests', () => {
