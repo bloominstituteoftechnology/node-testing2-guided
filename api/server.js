@@ -20,8 +20,9 @@ server.get("/hobbits", (req, res) => {
     });
 });
 
-server.get("/hobbits/:id", (req, res) => {
-  res.end()
+server.get("/hobbits/:id", async (req, res) => {
+  const result = await Hobbits.getById(req.params.id);
+  res.json(result);
 });
 
 server.post("/hobbits", (req, res) => {
