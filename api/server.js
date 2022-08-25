@@ -52,7 +52,11 @@ server.put("/hobbits/:id", async (req, res) => {
   }
 
   const result = await Hobbits.update(req.params.id, { name });
-  res.json(result);
+  if(result) {
+    res.json(result);
+  } else {
+    res.status(404).json({ message: 'hobbit not found' });
+  }
 });
 
 module.exports = server;
