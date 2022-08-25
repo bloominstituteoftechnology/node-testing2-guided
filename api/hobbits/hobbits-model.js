@@ -13,7 +13,8 @@ function getAll() {
 }
 
 function getById(id) {
-  return null
+  // SELECT * FROM hobbits WHERE id = ???
+  return db('hobbits').where('id', id);
 }
 
 async function insert(hobbit) {
