@@ -70,7 +70,8 @@ describe('hobbit model tests', () => {
 describe('HTTP endpoint tests', () => {
     test('GET /', async () => {
         const result = await request(server).get('/');
-        console.log();
+        expect(result.body).toEqual({ api: 'up' });
+        expect(result.status).toBe(200);
     });
 
     // test('GET /hobbits', async () => {});
