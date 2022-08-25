@@ -91,7 +91,14 @@ describe('HTTP endpoint tests', () => {
         expect(result.body).toMatchObject({ message: 'hobbit not found' });
     });
 
-    // test('POST /hobbits', async () => {});
+    test('POST /hobbits', async () => {
+        let result = await request(server).post('/hobbits').send({ name: 'lotho' });
+        expect(result.body).toMatchObject({ id: 5, name: 'lotho' });
+        expect(result.status).toBe(200);
+
+        result = await Hobbit.getAll();
+        expect(result).toHaveLength(5);
+    });
 
     // test('PUT /hobbits/:id', async () => {});
 
