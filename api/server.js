@@ -22,7 +22,11 @@ server.get("/hobbits", (req, res) => {
 
 server.get("/hobbits/:id", async (req, res) => {
   const result = await Hobbits.getById(req.params.id);
-  res.json(result);
+  if(result) {
+    res.json(result);
+  } else {
+    res.status(404).json();
+  }
 });
 
 server.post("/hobbits", (req, res) => {
