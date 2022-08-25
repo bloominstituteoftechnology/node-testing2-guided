@@ -23,6 +23,7 @@ describe('hobbit model tests', () => {
         let result = await Hobbit.getAll();
         expect(result).toBeDefined();
         expect(result).toHaveLength(4);
+        expect(result[2]).toHaveProperty('name', 'pippin');
     });
 
     // test('Hobbit.getById', async () => {});
