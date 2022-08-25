@@ -121,5 +121,19 @@ describe('HTTP endpoint tests', () => {
         expect(result.body).toMatchObject({ message: 'hobbit not found' });
     });
 
-    // test('DELETE /hobbits/:id', async () => {});
+    test('DELETE /hobbits/:id', async () => {
+        let result = await request(server).delete('/hobbits/3');
+        expect(result.body).toMatchObject({ id: 3, name: 'pippin' });
+        expect(result.status).toBe(200);
+
+        result = await Hobbit.getAll();
+        expect(result).toHaveLength(3);
+
+        result = await Hobbit.remove(3);
+        expect(result).not.toBeDefined();
+
+        result = await request(server).delete('/hobbits/3');
+        expect(result.status).toBe(404);
+        expect(result.body).toMatchObject({ message: 'hobbit not found' });
+    });
 });
