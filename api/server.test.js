@@ -109,7 +109,7 @@ describe('HTTP endpoint tests', () => {
         expect(result.body).toMatchObject({ id: 3, name: 'peregrin' });
         expect(result.status).toBe(200);
 
-        result = await request(server).put('/hobbits').send({ blah: 'foobar' });
+        result = await request(server).put('/hobbits/3').send({ blah: 'foobar' });
         expect(result.body).toMatchObject({ message: 'invalid request' });
         expect(result.status).toBe(400);
 
