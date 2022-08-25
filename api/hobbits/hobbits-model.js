@@ -14,7 +14,7 @@ function getAll() {
 
 function getById(id) {
   // SELECT * FROM hobbits WHERE id = ???
-  return db('hobbits').where('id', id);
+  return db('hobbits').where('id', id).first();
 }
 
 async function insert(hobbit) {
