@@ -14,6 +14,10 @@ beforeEach(async () => {
     await db.seed.run();
 });
 
+afterAll(async () => {
+    await db.destroy();
+});
+
 describe('hobbit model tests', () => {
     test('Hobbit.getAll', async () => {
         let result = await Hobbit.getAll();
