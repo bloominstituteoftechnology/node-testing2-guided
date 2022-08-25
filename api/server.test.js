@@ -53,5 +53,14 @@ describe('hobbit model tests', () => {
         expect(result).not.toBeDefined();
     });
 
-    // test('Hobbit.remove', async () => {});
+    test('Hobbit.remove', async () => {
+        let result = await Hobbit.remove(3);
+        expect(result).toMatchObject({ id: 3, name: 'pippin' });
+
+        result = await Hobbit.getAll();
+        expect(result).toHaveLength(3);
+
+        result = await Hobbit.remove(3);
+        expect(result).not.toBeDefined();
+    });
 });
