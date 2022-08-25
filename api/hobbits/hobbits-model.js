@@ -19,7 +19,8 @@ function getById(id) {
 
 async function insert(hobbit) {
   // INSERT INTO hobbits (name) VALUES (???)
-  return db('hobbits').insert(hobbit);
+  const [id] = await db('hobbits').insert(hobbit);
+  return getById(id);
 }
 
 async function update(id, changes) {
